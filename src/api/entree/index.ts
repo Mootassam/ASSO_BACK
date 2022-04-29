@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/entree`,
+    require('./entreeCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/entree/:id`,
+    require('./entreeUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/entree/import`,
+    require('./entreeImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/entree`,
+    require('./entreeDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/entree/autocomplete`,
+    require('./entreeAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/entree`,
+    require('./entreeList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/entree/:id`,
+    require('./entreeFind').default,
+  );
+};

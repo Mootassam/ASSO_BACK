@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/coupons`,
+    require('./couponsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/coupons/:id`,
+    require('./couponsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/coupons/import`,
+    require('./couponsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/coupons`,
+    require('./couponsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/coupons/autocomplete`,
+    require('./couponsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/coupons`,
+    require('./couponsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/coupons/:id`,
+    require('./couponsFind').default,
+  );
+};

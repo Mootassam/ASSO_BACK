@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/cart`,
+    require('./cartCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/cart/:id`,
+    require('./cartUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/cart/import`,
+    require('./cartImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/cart`,
+    require('./cartDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/cart/autocomplete`,
+    require('./cartAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/cart`,
+    require('./cartList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/cart/:id`,
+    require('./cartFind').default,
+  );
+};

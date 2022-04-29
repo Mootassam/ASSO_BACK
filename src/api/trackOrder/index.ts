@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/track-order`,
+    require('./trackOrderCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/track-order/:id`,
+    require('./trackOrderUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/track-order/import`,
+    require('./trackOrderImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/track-order`,
+    require('./trackOrderDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/track-order/autocomplete`,
+    require('./trackOrderAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/track-order`,
+    require('./trackOrderList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/track-order/:id`,
+    require('./trackOrderFind').default,
+  );
+};

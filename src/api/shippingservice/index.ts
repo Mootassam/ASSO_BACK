@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/shippingservice`,
+    require('./shippingserviceCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/shippingservice/:id`,
+    require('./shippingserviceUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/shippingservice/import`,
+    require('./shippingserviceImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/shippingservice`,
+    require('./shippingserviceDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/shippingservice/autocomplete`,
+    require('./shippingserviceAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/shippingservice`,
+    require('./shippingserviceList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/shippingservice/:id`,
+    require('./shippingserviceFind').default,
+  );
+};

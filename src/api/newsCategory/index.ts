@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/news-category`,
+    require('./newsCategoryCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/news-category/:id`,
+    require('./newsCategoryUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/news-category/import`,
+    require('./newsCategoryImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/news-category`,
+    require('./newsCategoryDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/news-category/autocomplete`,
+    require('./newsCategoryAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/news-category`,
+    require('./newsCategoryList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/news-category/:id`,
+    require('./newsCategoryFind').default,
+  );
+};

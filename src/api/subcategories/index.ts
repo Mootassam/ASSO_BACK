@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/subcategories`,
+    require('./subcategoriesCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/subcategories/:id`,
+    require('./subcategoriesUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/subcategories/import`,
+    require('./subcategoriesImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/subcategories`,
+    require('./subcategoriesDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subcategories/autocomplete`,
+    require('./subcategoriesAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subcategories`,
+    require('./subcategoriesList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subcategories/:id`,
+    require('./subcategoriesFind').default,
+  );
+};

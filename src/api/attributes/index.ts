@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/attributes`,
+    require('./attributesCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/attributes/:id`,
+    require('./attributesUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/attributes/import`,
+    require('./attributesImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/attributes`,
+    require('./attributesDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/attributes/autocomplete`,
+    require('./attributesAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/attributes`,
+    require('./attributesList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/attributes/:id`,
+    require('./attributesFind').default,
+  );
+};

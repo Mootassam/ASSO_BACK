@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/edit`,
+    require('./editCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/edit/:id`,
+    require('./editUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/edit/import`,
+    require('./editImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/edit`,
+    require('./editDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/edit/autocomplete`,
+    require('./editAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/edit`,
+    require('./editList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/edit/:id`,
+    require('./editFind').default,
+  );
+};

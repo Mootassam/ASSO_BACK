@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/campaign`,
+    require('./campaignCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/campaign/:id`,
+    require('./campaignUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/campaign/import`,
+    require('./campaignImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/campaign`,
+    require('./campaignDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign/autocomplete`,
+    require('./campaignAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign`,
+    require('./campaignList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign/:id`,
+    require('./campaignFind').default,
+  );
+};

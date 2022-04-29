@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/review`,
+    require('./reviewCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/review/:id`,
+    require('./reviewUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/review/import`,
+    require('./reviewImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/review`,
+    require('./reviewDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/review/autocomplete`,
+    require('./reviewAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/review`,
+    require('./reviewList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/review/:id`,
+    require('./reviewFind').default,
+  );
+};

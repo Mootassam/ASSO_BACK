@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/election`,
+    require('./electionCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/election/:id`,
+    require('./electionUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/election/import`,
+    require('./electionImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/election`,
+    require('./electionDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/election/autocomplete`,
+    require('./electionAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/election`,
+    require('./electionList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/election/:id`,
+    require('./electionFind').default,
+  );
+};

@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/paymentsettings`,
+    require('./paymentsettingsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/paymentsettings/:id`,
+    require('./paymentsettingsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/paymentsettings/import`,
+    require('./paymentsettingsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/paymentsettings`,
+    require('./paymentsettingsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/paymentsettings/autocomplete`,
+    require('./paymentsettingsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/paymentsettings`,
+    require('./paymentsettingsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/paymentsettings/:id`,
+    require('./paymentsettingsFind').default,
+  );
+};

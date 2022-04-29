@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/brands`,
+    require('./brandsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/brands/:id`,
+    require('./brandsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/brands/import`,
+    require('./brandsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/brands`,
+    require('./brandsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/brands/autocomplete`,
+    require('./brandsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/brands`,
+    require('./brandsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/brands/:id`,
+    require('./brandsFind').default,
+  );
+};

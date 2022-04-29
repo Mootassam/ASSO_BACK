@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/charge`,
+    require('./chargeCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/charge/:id`,
+    require('./chargeUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/charge/import`,
+    require('./chargeImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/charge`,
+    require('./chargeDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/charge/autocomplete`,
+    require('./chargeAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/charge`,
+    require('./chargeList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/charge/:id`,
+    require('./chargeFind').default,
+  );
+};
